@@ -1,0 +1,67 @@
+# ==========================================
+# 1. Hệ điều hành và Trình soạn thảo (OS & IDEs)
+# ==========================================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# ==========================================
+# 2. Node / Next.js (Front-end)
+# ==========================================
+node_modules/
+.next/
+out/
+build/
+dist/
+.npm
+*-error.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ==========================================
+# 3. Python & AI / Deep Learning (cnn-ai)
+# ==========================================
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+.history/
+.ipynb_checkpoints/
+
+# Không đẩy các file Model AI quá nặng lên GitHub (tránh lỗi Git LFS)
+*.h5
+*.keras
+*.pt
+*.pkl
+*.onnx
+
+# ==========================================
+# 4. Bảo mật & Cấu hình môi trường (Secrets)
+# ==========================================
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.pem
+*.key
+
+# ==========================================
+# 5. Docker & Log hệ thống
+# ==========================================
+.docker/
+*.log
+logs/
