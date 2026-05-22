@@ -1,16 +1,3 @@
-"""
-my_tf_mod.py — Module AI xử lý mô hình CNN
-============================================
-Thay đổi so với phiên bản cũ:
-  1. Sửa Image.ANTIALIAS (bị xóa ở Pillow 10+) → Image.Resampling.LANCZOS
-  2. Tránh gọi model.predict() nhiều lần trên cùng một ảnh (lãng phí tài nguyên)
-     → Cache kết quả vào biến cục bộ
-  3. Thêm hàm generate_gradcam() — Thuật toán Grad-CAM
-     Trả về ảnh heatmap dạng base64 PNG để Frontend hiển thị
-  4. Thêm hàm preprocess_bytes() — Nhận bytes thay vì file object
-     (phù hợp với API endpoint JSON mới)
-"""
-
 import numpy as np
 import tensorflow as tf
 from tensorflow.keras.models import load_model
@@ -68,8 +55,6 @@ def preprocess_bytes(raw_bytes):
     org_img_pil = Image.open(BytesIO(raw_bytes)).convert('RGB')
     org_img_pil.load()
 
-    # ANTIALIAS đã bị khai tử (deprecated từ Pillow 9.1, xóa ở Pillow 10)
-    # Dùng Image.Resampling.LANCZOS thay thế
     img_resized = org_img_pil.resize((100, 100), Image.Resampling.LANCZOS)
 
     img_arr = keras_image.img_to_array(img_resized)          # shape: (100, 100, 3)

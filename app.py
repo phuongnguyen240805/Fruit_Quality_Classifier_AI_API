@@ -1,16 +1,3 @@
-"""
-app.py — Flask AI Backend (Phiên bản nâng cấp)
-=================================================
-Thay đổi so với phiên bản cũ:
-  1. Thêm flask-cors: Cho phép Next.js (port 3000) gọi API đến Flask (port 5000)
-  2. Thêm endpoint mới /api/predict (POST):
-     - Nhận ảnh dạng multipart/form-data (key: "file")
-     - Trả về JSON đầy đủ: phân loại quả, chất lượng, ảnh heatmap Grad-CAM
-  3. Thêm endpoint /api/health (GET): Kiểm tra server còn sống không
-  4. Giữ lại route HTML cũ / và /Prediction để không phá vỡ tính năng cũ
-  5. Xử lý lỗi đầy đủ (try/except) và trả về error message rõ ràng
-"""
-
 import os
 import base64
 from io import BytesIO
@@ -164,7 +151,7 @@ def api_predict():
 
 
 # ─────────────────────────────────────────────────────
-# ROUTE CŨ: Giữ lại để không phá vỡ tính năng cũ
+# ROUTE
 # ─────────────────────────────────────────────────────
 @app.route('/')
 def home():
